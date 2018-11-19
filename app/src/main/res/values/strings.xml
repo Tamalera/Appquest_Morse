@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Appquest_Morse</string>
+    <string name="add_text">Add Text</string>
+    <string name="send_morse">Send Morse</string>
 </resources>

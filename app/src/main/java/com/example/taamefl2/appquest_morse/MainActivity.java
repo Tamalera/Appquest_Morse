@@ -26,8 +26,29 @@ public class MainActivity extends AppCompatActivity {
         textToMorse.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
-                    morseEncoder.textToCode(textForMorsing.getText().toString());
-                    //TODO: add logic to send morse to display and do magic stuff of dooooom
+                    List<Primitive> morseCode = morseEncoder.textToCode(textForMorsing.getText().toString());
+                    for (Primitive bit: morseCode){
+                        switch (bit.getTextRepresentation()){
+                            case "·":
+                                Log.i("DIT", "Code");
+                                break;
+                            case "−":
+                                Log.i("DAH", "Code");
+                                break;
+                            case " ":
+                                Log.i("GAP", "Code");
+                                break;
+                            case "   ":
+                                Log.i("SYMBOLGAP", "Code");
+                                break;
+                            case " / ":
+                                Log.i("WORDGAP", "Code");
+                                break;
+                            default:
+                                Log.i("DEFAULT", "Code");
+                                break;
+                        }
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

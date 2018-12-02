@@ -37,10 +37,21 @@ public class MainActivity extends AppCompatActivity {
                     ((ViewGroup)textForMorsing.getParent()).removeView(textForMorsing);
                     ((ViewGroup)textToMorse.getParent()).removeView(textToMorse);
 
-                    // Flash screen (TODO: Check Timing, Error Handling, Commenting, Make functions and not line of doooom)
+                    // Flash screen (TODO: Check Timing, SymbolGap???)
                     final Handler handler = new Handler();
                     for (int a = 0; a < morseCode.size() ;a++) {
                         final int finalA = a;
+                        // FinalB is the sum of all previous delays.
+                        int finalB;
+                        if (a > 0) {
+                            finalB = 0;
+                            for (int i = 0; i < finalA; i++) {
+                                finalB += morseCode.get(a - 1).getSignalLengthInDits() * 500;
+                            }
+                        } else {
+                            finalB = 0;
+                        }
+                        Log.i(morseCode.get(finalA).getTextRepresentation(), "Lenght");
                         handler.postDelayed(new Runnable() {
                             public void run() {
                                 switch (morseCode.get(finalA).getTextRepresentation()){
@@ -64,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                                         break;
                                 }
                             }
-                            }, morseCode.get(finalA).getSignalLengthInDits() * 500 * finalA);
+                            }, morseCode.get(finalA).getSignalLengthInDits() * 500 + finalB);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

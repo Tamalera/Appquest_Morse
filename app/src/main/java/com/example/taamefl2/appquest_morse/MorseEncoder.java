@@ -1,7 +1,5 @@
 package com.example.taamefl2.appquest_morse;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -57,7 +55,6 @@ public class MorseEncoder {
 
             // add space between symbols if necessary
             if (code.size() > 0 && code.get(code.size() - 1).isLightOn() && symbol[0].isLightOn()) {
-                Log.i("SYMBOL ADDED", "SYMBOL");
                 code.add(SYMBOL_GAP);
             }
 

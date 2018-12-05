@@ -1,19 +1,15 @@
 package com.example.taamefl2.appquest_morse;
 
 import android.graphics.Color;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,12 +30,12 @@ public class MainActivity extends AppCompatActivity {
                     final List<Primitive> morseCode = morseEncoder.textToCode(textForMorsing.getText().toString());
 
                     // Get textinput and button out of the way:
-                    ((ViewGroup)textForMorsing.getParent()).removeView(textForMorsing);
-                    ((ViewGroup)textToMorse.getParent()).removeView(textToMorse);
+                    ((ViewGroup) textForMorsing.getParent()).removeView(textForMorsing);
+                    ((ViewGroup) textToMorse.getParent()).removeView(textToMorse);
 
-                    // Flash screen (TODO: Check Timing, SymbolGap???)
+                    // Flash screen (TODO: Check/Improve Timing: Suggestion: Try with APP QUEST (I think that is a sensible approach))
                     final Handler handler = new Handler();
-                    for (int a = 0; a < morseCode.size() ;a++) {
+                    for (int a = 0; a < morseCode.size(); a++) {
                         final int finalA = a;
                         // FinalB is the sum of all previous delays.
                         int finalB;
@@ -51,10 +47,9 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             finalB = 0;
                         }
-                        Log.i(morseCode.get(finalA).getTextRepresentation(), "Lenght");
                         handler.postDelayed(new Runnable() {
                             public void run() {
-                                switch (morseCode.get(finalA).getTextRepresentation()){
+                                switch (morseCode.get(finalA).getTextRepresentation()) {
                                     case "·":
                                         getWindow().getDecorView().setBackgroundColor(Color.WHITE);
                                         break;
@@ -75,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                                         break;
                                 }
                             }
-                            }, morseCode.get(finalA).getSignalLengthInDits() * 500 + finalB);
+                        }, morseCode.get(finalA).getSignalLengthInDits() * 500 + finalB);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

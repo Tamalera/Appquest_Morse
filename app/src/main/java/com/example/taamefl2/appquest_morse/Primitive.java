@@ -1,11 +1,11 @@
 package com.example.taamefl2.appquest_morse;
 
 public class Primitive {
-    static final Primitive DIT = new Primitive("·", true, 1);
-    static final Primitive DAH = new Primitive("−", true, 3);
-    static final Primitive GAP = new Primitive(" ", false, 1);
-    static final Primitive SYMBOL_GAP = new Primitive("   ", false, 3);
-    static final Primitive WORD_GAP = new Primitive(" / ", false, 7);
+    static final Primitive DIT = new Primitive("·", true, 500);
+    static final Primitive DAH = new Primitive("−", true, 1500);
+    static final Primitive GAP = new Primitive(" ", false, 500);
+    static final Primitive SYMBOL_GAP = new Primitive("   ", false, 1500);
+    static final Primitive WORD_GAP = new Primitive(" / ", false, 3500);
 
     private String textRepresentation;
     private boolean lightOn;
@@ -29,3 +29,4 @@ public class Primitive {
         return signalLengthInDits;
     }
 }
+

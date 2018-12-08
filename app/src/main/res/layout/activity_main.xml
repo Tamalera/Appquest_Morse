@@ -5,23 +5,52 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
 
+            <EditText
+                android:id="@+id/addText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:text=""/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textToMorse"
+                android:text="@string/send_morse"/>
+            <EditText
+                android:id="@+id/logBookText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:text=""/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textToLogbook"
+                android:text="Log Morse"/>
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/addText"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:text=""/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textToMorse"
-            android:text="@string/send_morse"/>
-    </LinearLayout>
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/logText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="200dp"
+                android:ems="10"
+                android:text=""
+                android:enabled="true"
+                android:focusableInTouchMode="false"
+                android:scrollbars="vertical"/>
+
+        </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>

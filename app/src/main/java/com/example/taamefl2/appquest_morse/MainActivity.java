@@ -116,8 +116,9 @@ public class MainActivity extends AppCompatActivity {
         textToLogbook.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
-                    logbook.checkIfLogbookInstalled(context);
-                    logbook.passDataToLogbook(context, textForLookbook.getText().toString());
+                    if (logbook.checkIfLogbookInstalled(context)) {
+                        logbook.passDataToLogbook(context, textForLookbook.getText().toString());
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
